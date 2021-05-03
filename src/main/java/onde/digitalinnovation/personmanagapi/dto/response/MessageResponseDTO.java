@@ -1,4 +1,4 @@
-package onde.digitalinnovation.personmanagapi.dto;
+package onde.digitalinnovation.personmanagapi.dto.response;
 
 import lombok.Builder;
 import lombok.Data;
