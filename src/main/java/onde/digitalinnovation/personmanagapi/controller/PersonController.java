@@ -2,6 +2,7 @@ package onde.digitalinnovation.personmanagapi.controller;
 
 import onde.digitalinnovation.personmanagapi.dto.request.PersonDTO;
 import onde.digitalinnovation.personmanagapi.dto.response.MessageResponseDTO;
+import onde.digitalinnovation.personmanagapi.entity.Person;
 import onde.digitalinnovation.personmanagapi.exception.PersonNotFoundException;
 import onde.digitalinnovation.personmanagapi.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,13 @@ public class PersonController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) throws PersonNotFoundException {
         personService.delete(id);
+    }
+
+    @PutMapping("/{id}")
+    public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid PersonDTO personDTO) throws PersonNotFoundException {
+
+        return personService.updateById(id, personDTO);
+
     }
 
 }
